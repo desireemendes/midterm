@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS status CASCADE;
+CREATE TABLE status (
+  id SERIAL PRIMARY KEY NOT NULL,
+  customer_id INTEGER REFERENCES customers(id) on DELETE CASCADE,
+  order_id INTEGER REFERENCES orders(id) on DELETE CASCADE,
+  menu_id INTEGER REFERENCES menus(id) on DELETE CASCADE,
+  pickup_time TIMESTAMP NOT NULL,
+  total_cost INTEGER NOT NULL
+);
