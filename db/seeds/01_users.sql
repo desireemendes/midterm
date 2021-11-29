@@ -1,6 +1,34 @@
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Eva Stanley', 'sebastianguerra@ymail.com', '+3679386348', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Louisa Meyer', 'louisameyer@ymail.com', '+9054559045', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Leroy Hart', 'leroy@ymail.com', '+5890294021', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Matilda Smith', 'msmith@ymail.com', '+4559056789', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Dominic Parks', 'domi@ymail.com', '+6778934596', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Lisa Rose', 'roselisa@ymail.com', '+9034560978', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Mason Morrison', 'mm@ymail.com', '+4982576903', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Sue Luna', 'sueluna@ymail.com', '+9034962356', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Moe Westt', 'mwest@ymail.com', '+5492054389', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO customers (name, email, phone_number, password)
+VALUES
+('Margaret Wong', 'margaretwong@ymail.com', '+4556782398', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
 
-
--- Menus table
 INSERT INTO menus (id, picture_url, name, description, price, active)
 VALUES (1, 'https://images.app.goo.gl/ah3seX84CfsxhZ5e6', 'Samosa', 'Triangle shaped pastries filled with onions, peas and a variety of Indian spices with your choice of potato, lentils, chicken or beef filling', 4.99, true);
 
@@ -15,7 +43,6 @@ VALUES (7, 'https://images.app.goo.gl/i4qJgsuMc8fVBVvDA', 'Fish Pakora', 'Breade
 
 INSERT INTO menus (id, picture_url, name, description, price, active)
 VALUES (9, 'https://images.app.goo.gl/rSs1prVruyBtp3Zx5', 'Biriyani(Vegetables/Paneer/Chicken, Lamb, Prawn or Beef)', 'Saffron rice cooked with vegetables/paneer/chicken/lamb/beef/prawns with whole spices, almonds, cashews, and dairy', 20, true);
-
 
 INSERT INTO menus (id, picture_url, name, description, price, active)
 VALUES (2, 'https://images.app.goo.gl/FeaaqzJYMLq4ZUdA6', 'Kadai Paneer', 'Homemade cheese cooked with whole spices, onions, green and red bell peppers', 14.99, true);
@@ -32,4 +59,33 @@ VALUES (8, 'https://images.app.goo.gl/DC3rp8HAvKiGHPKV6', 'Kulfi (Mango/Pistachi
 INSERT INTO menus (id, picture_url, name, description, price, active)
 VALUES (10, 'https://images.app.goo.gl/H3aTHtE9zcM4ZQ4r9 ', 'Masala Chai', 'Black tea infused with fragrant spices, typically served with milk', 3.5, true);
 
-
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(1, 5, 3, 3:45, 12.99);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(2, 4, 6, '2021-12-03 8:43', 3.99);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(5, 1, 5, '2021-12-05 10:43', 10);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(8, 2, 9, '2021-12-21 9:20', 12);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(1, 3, 7, '2021-12-22 14:30', 9);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(3, 7, 4, '2021-12-15 10:43', 13);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(7, 3, 2, '2021-12-18 15:22', 11);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(9, 9, 9, '2021-12-28 19:55', 15);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(5, 4, 6, '2021-12-24 17:01', 10.5);
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(7, 3, 8, '2021-12-17 12:30', 8);
