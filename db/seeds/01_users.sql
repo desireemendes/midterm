@@ -59,6 +59,28 @@ VALUES (8, 'https://images.app.goo.gl/DC3rp8HAvKiGHPKV6', 'Kulfi (Mango/Pistachi
 INSERT INTO menus (id, picture_url, name, description, price, active)
 VALUES (10, 'https://images.app.goo.gl/H3aTHtE9zcM4ZQ4r9 ', 'Masala Chai', 'Black tea infused with fragrant spices, typically served with milk', 3.5, true);
 
+INSERT INTO orders (customer_id, menu_id, quantity, cost_item, order_time)
+VALUES (1, 2, 2, 450.00, '2021-11-28 13:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (2, 3, 1, 150.00,  '2021-11-28 12:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (3, 5, 3, 550.00, '2021-11-28 05:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (4, 4, 2, 400.00, '2021-11-28 04:00:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (7, 6, 5, 900.00, '2021-11-28 06:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (5, 3, 2, 350.00, '2021-11-28 07:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (8, 7, 1, 40.00, '2021-11-28 09:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (9, 8, 3, 470.00, '2021-11-28 13:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (5, 4, 1, 150.00, '2021-11-28 11:10:00.208497+07');
+INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
+VALUES (9, 2, 2, 450.00, '2021-11-28 12:10:00.208497+07');
+
+
 INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
 VALUES
 (1, 5, 3, 3:45, 12.99);
@@ -90,25 +112,3 @@ INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
 VALUES
 (7, 3, 8, '2021-12-17 12:30', 8);
 
--- orders
-
-INSERT INTO orders (customer_id, menu_id, quantity, cost_item, order_time)
-VALUES (1, 2, 2, 450.00, '2021-11-28 13:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (2, 3, 1, 150.00,  '2021-11-28 12:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (3, 5, 3, 550.00, '2021-11-28 05:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (4, 4, 2, 400.00, '2021-11-28 04:00:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (7, 6, 5, 900.00, '2021-11-28 06:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (5, 3, 2, 350.00, '2021-11-28 07:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (8, 7, 1, 40.00, '2021-11-28 09:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (9, 8, 3, 470.00, '2021-11-28 13:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (5, 4, 1, 150.00, '2021-11-28 11:10:00.208497+07');
-INSERT INTO orders (customer_id, menu_id,quantity, cost_item, order_time)
-VALUES (9, 2, 2, 450.00, '2021-11-28 12:10:00.208497+07');

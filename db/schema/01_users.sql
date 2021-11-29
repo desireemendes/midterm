@@ -16,16 +16,6 @@ CREATE TABLE menus (
   description TEXT,
   price decimal,
   active BOOLEAN
-
-DROP TABLE IF EXISTS status CASCADE;
-CREATE TABLE status (
-  id SERIAL PRIMARY KEY NOT NULL,
-  customer_id INTEGER REFERENCES customers(id) on DELETE CASCADE,
-  order_id INTEGER REFERENCES orders(id) on DELETE CASCADE,
-  menu_id INTEGER REFERENCES menus(id) on DELETE CASCADE,
-  pickup_time TIMESTAMP NOT NULL,
-  total_cost INTEGER NOT NULL
-
 );
 
 DROP TABLE IF EXISTS orders CASCADE;
@@ -36,5 +26,24 @@ CREATE TABLE orders (
  quantity INTEGER NOT NULL,
  cost_item DECIMAL(5, 2) NOT NULL,
  order_time TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-
 );
+
+DROP TABLE IF EXISTS status CASCADE;
+CREATE TABLE status (
+  id SERIAL PRIMARY KEY NOT NULL,
+  customer_id INTEGER REFERENCES customers(id) on DELETE CASCADE,
+  order_id INTEGER REFERENCES orders(id) on DELETE CASCADE,
+  menu_id INTEGER REFERENCES menus(id) on DELETE CASCADE,
+  pickup_time TIMESTAMP NOT NULL,
+  total_cost INTEGER NOT NULL
+);
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+>>>>>>> fd43c0601cf11d5c07d2e13b9c087a5ba2728dd1
