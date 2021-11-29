@@ -25,7 +25,7 @@ CREATE TABLE status (
   menu_id INTEGER REFERENCES menus(id) on DELETE CASCADE,
   pickup_time TIMESTAMP NOT NULL,
   total_cost INTEGER NOT NULL
->>>>>>> 4536fe1b5c8905f99b9de66dc3e3502ce5d29520
+
 );
 
 
