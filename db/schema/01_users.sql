@@ -1,7 +1,18 @@
--- Drop and recreate Users table (Example)
-
-DROP TABLE IF EXISTS users CASCADE;
-CREATE TABLE users (
+DROP TABLE IF EXISTS customers CASCADE;
+CREATE TABLE customers (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  phone_number VARCHAR(255),
+  password TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS status CASCADE;
+CREATE TABLE status (
+  id SERIAL PRIMARY KEY NOT NULL,
+  customer_id INTEGER REFERENCES customers(id) on DELETE CASCADE,
+  order_id INTEGER REFERENCES orders(id) on DELETE CASCADE,
+  menu_id INTEGER REFERENCES menus(id) on DELETE CASCADE,
+  pickup_time TIMESTAMP NOT NULL,
+  total_cost INTEGER NOT NULL
 );
