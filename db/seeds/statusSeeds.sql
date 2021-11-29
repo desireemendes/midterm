@@ -28,4 +28,6 @@ VALUES
 INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
 VALUES
 (7, 3, 8, '2021-12-17 12:30', 8);
-
+INSERT INTO status (customer_id, order_id, menu_id, pickup_time, total_cost)
+VALUES
+(2, 4, 3, '2021-12-29 11:30', 12);
