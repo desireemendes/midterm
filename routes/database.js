@@ -1,5 +1,5 @@
-const menus = require('./json/menus.json');
-const customers = require('./json/customers.json');
+// const menus = require('./json/menus.json');
+// const customers = require('./json/customers.json');
 
 const { Pool } = require('pg');
 
