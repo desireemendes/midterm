@@ -37,13 +37,3 @@ CREATE TABLE status (
   pickup_time TIMESTAMP NOT NULL,
   total_cost INTEGER NOT NULL
 );
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
->>>>>>> fd43c0601cf11d5c07d2e13b9c087a5ba2728dd1
