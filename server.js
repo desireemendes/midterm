@@ -52,11 +52,11 @@ const widgetsRoutes = require("./routes/widgets");
 const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
 const customers = require("./routes/customers");
-app.use("/api/customers", customers(db));
 
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use("/api/customers", customers(db));
 app.use("/api/users", customersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", customers(db));
