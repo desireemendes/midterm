@@ -1,33 +1,62 @@
 const express = require('express');
 const router  = express.Router();
-const bcrypt = require(bcrypt);
+// const bcrypt = require(bcrypt);
+const app = express();
+// const cookieSession = require('cookie-session')
+
+
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['you-cant-guess', 'my-top-secret-keys-321']
+// }));
+
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    db.query(`SELECT * FROM customers;`)
+      .then(data => {
+        const customers = data.rows;
+        res.json({ customers });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+  return router;
+};
 
 // To Login Page
-router.get("/login", (req, res) => {
- const user = users[req.session.user_id];
- const user = req.session.user_id;
-  res.render("login", { user });
+router.get('/login', (req, res) => {
+//  const templateVars = {customerId: req.session.customerId}
+// if (templateVars.customerId) {
+//   return res.redirect('/')
+// }
+// res.render('login')
+
+const templateVars = { customerId: null };
+  res.render('login', templateVars);
 });
 
-// Check the Email and Password to Login
-// router.post("/login", (req, res) => {
-//  // const { email, password } = req.body;
-// //  const { error } = userAlreadyExist(email, users);
-//  // if (!error) {
-//    // res.status(400).send(`Not an User Try again <a href ='login'> Login </a>`);
-//   //} else {
-//    // const user = getUserByEmail(email, users);
-//     // if (!bcrypt.compareSync(password, user.password)) {
-//     //   res.status(400).send("Invalid Password");
-//     // }
-//    // req.session.user_id = user["id"];
-//     res.redirect("/urls");
-//   //}
-// });
+router.post('/login', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
 
+  db.query(`SELECT id, name, email, password FROM customers WHERE email = $1;`, [email])
+  .then(data => {
+    const id = data.rows[0].id
+    const pass = data.rows[0].password;
+  })
+  .catch(err => {
+    res.status(500)
+    .json({ error: err.message})
+  })
+})
 
-
-
+router.post('/logout', (req, res) => {
+  req.session = null;
+  res.render('login')
+})
 
 
 

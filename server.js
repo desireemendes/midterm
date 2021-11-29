@@ -14,6 +14,15 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
+const cookieSession = require('cookie-session')
+
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['you-cant-guess', 'my-top-secret-keys-321']
+}));
+
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -38,15 +47,20 @@ app.use(express.static("public"));
 const customersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 
+// const usersRoutes = require("./routes/customers");
+
 const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
-
+const customers = require("./routes/customers");
+app.use("/api/customers", customers(db));
 
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", customersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/login", customers(db));
+
 
 // app.use("/api/apiRoutes", usersRoutes(db));
 // app.use("/api/users", usersRoutes(db));
@@ -59,6 +73,10 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("login", (req, res) => {
+  res.render("login")
 });
 
 app.listen(PORT, () => {
