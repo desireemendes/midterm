@@ -10,8 +10,10 @@ module.exports = (db) => {
     WHERE in_stock = TRUE`;
     db.query(query)
       .then(data => {
-        const menu = data.rows;
-        res.json({ menu });
+        // const menu = data.rows;
+        // res.json({ menu });
+        res.render('menu');
+
       })
       .catch(err => {
         res
@@ -22,3 +24,9 @@ module.exports = (db) => {
 
   return router;
 };
+
+router.get('/menu', (req, res) => {
+
+  const templateVars = { menuId: null }
+    res.render('menu', templateVars);
+  });

@@ -2,20 +2,15 @@ const express = require('express');
 const router  = express.Router();
 // const bcrypt = require(bcrypt);
 const app = express();
-// const cookieSession = require('cookie-session')
 
-
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['you-cant-guess', 'my-top-secret-keys-321']
-// }));
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM customers;`)
       .then(data => {
-        const customers = data.rows;
-        res.json({ customers });
+        // const customers = data.rows;
+        // res.json({ customers });
+         res.render('login');
       })
       .catch(err => {
         res
@@ -28,13 +23,8 @@ module.exports = (db) => {
 
 // To Login Page
 router.get('/login', (req, res) => {
-//  const templateVars = {customerId: req.session.customerId}
-// if (templateVars.customerId) {
-//   return res.redirect('/')
-// }
-// res.render('login')
 
-const templateVars = { customerId: null };
+const templateVars = { customerId: null }
   res.render('login', templateVars);
 });
 
