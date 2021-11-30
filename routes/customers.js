@@ -14,8 +14,9 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM customers;`)
       .then(data => {
-        const customers = data.rows;
-        res.json({ customers });
+        // const customers = data.rows;
+        // res.json({ customers });
+        res.render('login')
       })
       .catch(err => {
         res
@@ -34,24 +35,27 @@ router.get('/login', (req, res) => {
 // }
 // res.render('login')
 
-const templateVars = { customerId: null };
+const templateVars = { };
   res.render('login', templateVars);
 });
 
 router.post('/login', (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-
-  db.query(`SELECT id, name, email, password FROM customers WHERE email = $1;`, [email])
-  .then(data => {
-    const id = data.rows[0].id
-    const pass = data.rows[0].password;
-  })
-  .catch(err => {
-    res.status(500)
-    .json({ error: err.message})
-  })
+  req.session.customerId = customerId
 })
+// router.post('/login', (req, res) => {
+//   const email = req.body.email;
+//   const password = req.body.password;
+
+//   db.query(`SELECT id, name, email, password FROM customers WHERE email = $1;`, [email])
+//   .then(data => {
+//     const id = data.rows[0].id
+//     const pass = data.rows[0].password;
+//   })
+//   .catch(err => {
+//     res.status(500)
+//     .json({ error: err.message})
+//   })
+// })
 
 router.post('/logout', (req, res) => {
   req.session = null;

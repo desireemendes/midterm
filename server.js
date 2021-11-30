@@ -52,6 +52,7 @@ const widgetsRoutes = require("./routes/widgets");
 const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
 const customers = require("./routes/customers");
+const menus = require("./routes/menus");
 
 
 // Mount all resource routes
@@ -60,6 +61,7 @@ app.use("/api/customers", customers(db));
 app.use("/api/users", customersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", customers(db));
+app.use("/menu", menus(db));
 
 
 // app.use("/api/apiRoutes", usersRoutes(db));
@@ -81,4 +83,8 @@ app.get("login", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
+});
+
+app.get("/menus", (req,res) => {
+  res.render("menus");
 });
