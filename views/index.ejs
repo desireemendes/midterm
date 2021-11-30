@@ -17,6 +17,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/menu.js"></script>
 
 
 </head>
@@ -57,7 +58,51 @@
   </div>
 </div>
 </div>
+<a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+<span class="carousel-control-next-icon"></span>
+</a>
+</div>
+</section>
+<br>
+<br>
+<section class="image-cards">
+  <div id="menu" class="row row-cols-md-3 g-4">
+    <!-- ALL the menu items are appended here using jQuery -->
+  </div>
+</section>
 
+<!-- order summary section -->
+<section class ="card" id="order-container">
+  <header class="order-header">
+    <h5 class="card-title">Your Order</h5>
+    <button type="button" class="btn btn-default" id="clear-cart">Clear</button>
+  </header>
+
+  <form id="place-order" action="/orders" method="POST">
+    <section class="item-list">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th scope="col" class="item-name">Item</th>
+            <th scope="col" class="quantity">qty</th>
+            <th scope="col" class="price">price</th>
+          </tr>
+        </thead>
+        <tbody id="selected-items-container"></tbody>
+      </table>
+      <table class="order-table" id="sum-order"></table>
+    </section>
+
+
+    <footer class="order-footer">
+      <div class="order-button">
+        <button type="submit" class="btn btn-primary bg-dark">PLACE ORDER</button>
+      </div>
+    </footer>
+  </form>
 </section>
 
 
