@@ -55,6 +55,8 @@ const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
 const customers = require("./routes/customers");
 const menus = require("./routes/menus");
+// const orders = require("./routes/orders");
+
 
 
 
@@ -64,6 +66,9 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/customers", customers(db));
 app.use("/login", customers(db));
+app.use("/menu", menus(db));
+// app.use("/order", orders(db));
+
 
 // Note: mount other resources here, using the same pattern above
 
@@ -87,5 +92,5 @@ app.get("login", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Example app listening on port ${PORT} 😎😎`);
 });

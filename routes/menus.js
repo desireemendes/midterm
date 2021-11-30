@@ -7,12 +7,13 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `
     SELECT * FROM menus
-    WHERE in_stock = TRUE`;
+    `;
     db.query(query)
       .then(data => {
-        // const menu = data.rows;
+        const menu = data.rows;
+        const templateVars = { menu }
         // res.json({ menu });
-        res.render('menu');
+        res.render('menu', templateVars);
 
       })
       .catch(err => {
@@ -25,8 +26,3 @@ module.exports = (db) => {
   return router;
 };
 
-router.get('/menu', (req, res) => {
-
-  const templateVars = { menuId: null }
-    res.render('menu', templateVars);
-  });
