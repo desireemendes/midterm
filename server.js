@@ -16,7 +16,6 @@ db.connect();
 
 const cookieSession = require('cookie-session')
 
-
 app.use(cookieSession({
   name: 'session',
   keys: ['you-cant-guess', 'my-top-secret-keys-321']
@@ -44,10 +43,8 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const customersRoutes = require("./routes/users");
+const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-
-// const usersRoutes = require("./routes/customers");
 
 const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
@@ -56,14 +53,10 @@ const customers = require("./routes/customers");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/customers", customers(db));
-app.use("/api/users", customersRoutes(db));
+app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/customers", customers(db));
 app.use("/login", customers(db));
-
-
-// app.use("/api/apiRoutes", usersRoutes(db));
-// app.use("/api/users", usersRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
