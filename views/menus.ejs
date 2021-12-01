@@ -1,11 +1,12 @@
 <%= JSON.stringify(locals.result) %>
   <% for (let row in locals.result) { %>
   <section class="menu-rows">
-    <div>
-      <img class="menu-photo" src="<%= locals.result[row].picture_url %>" alt="Picture of food">
-    </div>
+
     <div class="menu-contents">
       <h1 class="menu-name"><%= locals.result[row].name %></h1>
+      <div>
+        <img class="menu-photo" src="<%= locals.result[row].picture_url %>" alt="Picture of food">
+      </div>
       <div class="menu-description"><%= locals.result[row].description %></div>
       <dish class="menu-price">$<%= (locals.result[row].price *.01).toFixed(2) %></dish>
       <div class="add-to-cart">
