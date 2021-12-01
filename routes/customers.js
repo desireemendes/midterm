@@ -1,14 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-// const bcrypt = require(bcrypt);
 const app = express();
-// const cookieSession = require('cookie-session')
 
-
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['you-cant-guess', 'my-top-secret-keys-321']
-// }));
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -101,17 +94,3 @@ router.post('/logout', (req, res) => {
 //     }
 //     exports.login = login;
 
-//     router.post('/login', (req, res) => {
-//       // const {email, password} = req.body;
-//       // console.log(req.body);
-//       login(email, password)
-//         .then(customer => {
-//           if (!customer) {
-//             res.send({error: "error"});
-//             return;
-//           }
-//           req.session.customerId = customer.id;
-//           res.send({customer: {name: customer.name, email: customer.email, id: customer.id}});
-//         })
-//         .catch(e => res.send(e));
-//     });

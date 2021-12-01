@@ -1,0 +1,39 @@
+<div class="cart-head">
+  <h2 class="cart-title">Your Cart</h2>
+</div>
+<div class="cart-body">
+  <!-- if items are added -->
+  <ul class="cart-item-container">
+
+        <% let subtotal = 0; %>
+        <% let order_time = 0; %>
+        <%= JSON.stringify(locals.result) %>
+
+    <% for (let item in locals.result) { %>
+    <li> <span class="cart-item-quantity"><%= locals.result[item].quantity %></span>
+      <span class="cart-item"><%= locals.result[item].name %></span>
+      <span class="cart-item-cost_item"><%= (locals.result[item].cost_item)*0.01 %></span>
+    </li>
+    <input  id="price" name="price" value=<%= locals.result[item].cost_item + subtotal %>>
+    <% subtotal = subtotal + locals.result[item].cost_item %>
+
+    <% } %>
+  </div>
+<% let tax = subtotal * 0.13; %>
+<% let total = subtotal * tax; %>
+<% let checkout = { } %>
+<div class="cart-footer">
+  <div class="cart-total">
+    <p>Subtotal: <%= (subtotal * .01) %></p>
+    <p>Tax: <%= (tax * .01) %></p>
+    <p>Total: <%= (total * .01)%></p>
+  </div>
+  <form action="/" method="POST">
+
+    <input type="hidden" id="id" name="id" value=<%= locals.result.id %>>
+    <input type="hidden" id="total" name="total" value=<%= total %>>
+    <input type="hidden" id="order_time" name="order_time" value=<%= order_time %>>
+    <button type="submit" class="checkout">Checkout</button>
+  </form>
+</div>
+

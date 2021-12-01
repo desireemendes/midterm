@@ -63,9 +63,6 @@ module.exports = (db) => {
           res.status(500).json({ error: err.message });
          });
     })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-     });
   });
 
     // POST Route for when the restaurant owner clicks on the Finished button and customer gets the final text
