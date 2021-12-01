@@ -5,6 +5,7 @@ const app = express();
 module.exports = (db) => {
 
 router.get("/", function(req, res) {
+
   const comm = `SELECT * FROM orders`;
 
   db.query(comm)
@@ -14,6 +15,26 @@ router.get("/", function(req, res) {
       //console.log(orders);
       res.json({ orders
    });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+//////add item to orderlist////////////
+
+
+router.get("/:id", function(req, res) {
+  const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
+
+
+  db.query(comm)
+    .then(data => {
+      templateVars.result = data.rows;
+     templateVars.fields = data.fields;
+     res.render('orders', templateVars);
     })
     .catch(err => {
       res
@@ -33,30 +54,6 @@ return router;
 
 
 //////partial////////////////////////
-// // const pool = require('./server');
-
-// // const getOrderItems = () => {
-// //   return pool
-// //     .query('SELECT * FROM orders;')
-// //     .then(res => res.rows)
-// //     .catch(err => err.messages);
-// // };
-
-// // // Get order items by order id
-// // const getOrderItemsById = (id) => {
-// //   const values = [ id ];
-
-// //   let sqlQuery = `SELECT orders.*, menus.name, menus.price`;
-// //   sqlQuery += `FROM orders`;
-// //   sqlQuery += `JOIN menus ON menus.id = orders.menu_id `;
-// //   sqlQuery += `WHERE orders.id = $1;`;
-
-// //   return pool
-// //     .query(sqlQuery, values)
-// //     .then(res => res.rows)
-// //     .catch(err => err.messages);
-// // };
-
 
 
 
