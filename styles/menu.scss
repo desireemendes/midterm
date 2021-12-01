@@ -1,12 +1,24 @@
 .menu {
-  background-color: lightyellow;
-  display: flex;
-  flex-direction: column;
+  margin-left: 20px;
 }
 
-.food_title{
+.menu_preview{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 50%;
+  border: 1px solid black;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.top_line{
   display: flex;
   justify-content: space-between;
+}
+
+.top_line p{
+  color: brown;
 }
 
 button{
@@ -14,25 +26,21 @@ button{
   padding: 1em;
 }
 
-.menu_preview{
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 50%;
-  border: 1px solid black;
-  padding: 1em;
-  margin-top: 1em;
-}
-
-.food_name {
-  font-size: 20px;
-  color: green;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .food_image{
-  min-width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
+
+h5{
+  color: green;
+}
+
+p {
+  // color: blue;
+  text-align: justify;
+}
+
+
+
 
 

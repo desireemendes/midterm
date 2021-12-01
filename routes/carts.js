@@ -2,18 +2,17 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-
-  // GET route for menu items
   router.get("/", (req, res) => {
     let query = `
-    SELECT * FROM menus
+    SELECT * FROM orders
     `;
     db.query(query)
       .then(data => {
-        const menu = data.rows;
+        const order = data.rows;
         const templateVars = { menu }
         // res.json({ menu });
-        res.render('menu', templateVars);
+        res.render('cart', templateVars);
+
       })
       .catch(err => {
         res
@@ -21,7 +20,5 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-
   return router;
 };
-

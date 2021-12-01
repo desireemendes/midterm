@@ -6,24 +6,20 @@
 
 <%- include('partials/_header') -%>
 <body>
-	<!-- <%- include('partials/_nav')-%> -->
-				<% for (food of menu) { %>
-          <article class="menu">
-            <section class="menu_preview">
-              <ul style="list-style: none;">
-                <div class="food_title">
-                  <li class="food_name"><%= food.name %></li>
-                  <button type="submit" class="btn btn-primary mb-3 ">Add to Cart</button>
-                </div>
+  <% for (food of menu) { %>
+    <article class="menu">
+        <div class="menu_preview">
+          <div class="top_line">
+            <p>$<%= food.price %></p>
+            <button type="submit" class="btn btn-primary mb-3 ">Add to Cart</button>
+          </div>
+          <img class="food_image" src="<%= food.picture_url %>">
+          <h5 class="food_name"><%= food.name %></h5>
+          <p><%= food.description %></p>
+        </div>
+    </article>
+  <% } %>
 
-
-                <li><img class="food_image" src="<%= food.picture_url %>"></li>
-                <li><%= food.description %></li>
-                <li><%= food.price %></li>
-              </ul>
-            </section>
-          </article>
-				<% } %>
 </body>
 
 

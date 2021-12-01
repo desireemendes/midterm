@@ -52,7 +52,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 
 const apiRoutes = require("./routes/apiRoutes");
-const database = require("./routes/database");
+// const database = require("./routes/database");
 const customers = require("./routes/customers");
 const menus = require("./routes/menus");
 // const orders = require("./routes/orders");
@@ -77,9 +77,9 @@ app.use("/menu", menus(db));
 // Separate them into separate routes files (see above).
 
 // /api/endpoints
-const apiRouter = express.Router();
-apiRoutes(apiRouter, database);
-app.use('/api', apiRouter);
+// const apiRouter = express.Router();
+// apiRoutes(apiRouter, database);
+// app.use('/api', apiRouter);
 
 
 
@@ -87,9 +87,9 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("login", (req, res) => {
-  res.render("login")
-});
+// app.get("login", (req, res) => {
+//   res.render("login")
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);

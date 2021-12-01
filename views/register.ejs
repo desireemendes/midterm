@@ -1,33 +1,46 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <head>
+    <title>Cart Page</title>
+  </head>
 
-<%- include('partials/_header') %>
+  <%- include('partials/_header') -%>
+
 
 <body>
-  <form method="POST" action="/login">
-    <p><h1>Login Page</h1></p>
-    <!-- <p><b>Email:</b> <input type="email" name="email"></p> -->
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email Address</label>
-      <input type="email" class="form-control" name="email" placeholder="Enter Email">
-    </div>
-    <!-- <p><b>Password:</b> <input type="password" name="password"></p> -->
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
-    <!-- <p><button><b>Login</b></button></p> -->
-    <button type="submit" class="btn btn-primary mb-3 ">Login</button>
+  <h1>Sign up!</h1>
 
-  </form>
+    <form id="registration-form" action="/users" method="POST">
+      <div class="form-group mb-2">
+        <label for="email">Enter Email:</label>
+        <input class="form-control email" type="email" name="email">
+        <label for="password">Enter password:</label>
+        <input class="form-control password" type="password" name="password">
+        <label>Re-enter password:</label>
+        <span class="password-match-error-message">password does not match!</span>
+        <input class="form-control re-enter-password" type="password" name="re-enter-password">
+        <label>Name:</label>
+        <input class="form-control user-name" type="text" name="name">
+        <label>Phone Number:</label>
+        <input class="form-control phone" type="tel" name="phone">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+    </form>
+    <span class="missing-fields-error-message">Please make sure you filled out all the fields</span>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
+
+
 
 
 

@@ -18,8 +18,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-  return router;
-};
+
 
 // To Login Page
 router.get('/login', (req, res) => {
@@ -45,8 +44,11 @@ router.post('/login', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session = null;
-  res.render('login')
-})
+  res.redirect('/')
+});
+
+return router;
+};
 
 
 
