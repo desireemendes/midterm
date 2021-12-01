@@ -25,3 +25,27 @@ module.exports = (db) => {
   return router;
 };
 
+// router.get("/", function(req, res) {
+//   const comm = `SELECT * FROM menus`;
+
+//   db.query(comm)
+//     .then(data => {
+//       const menus = data.rows;
+//       console.log(menus);
+//       res.json({ menus });
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+// });
+
+// return router;
+
+
+//  };
+
+//  app.get("/menus", (req,res) => {
+//   res.render("menus");
+// });
