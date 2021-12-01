@@ -10,9 +10,10 @@ router.get("/", function(req, res) {
 
   db.query(comm)
     .then(data => {
-     // const menus = data.rows;
-     templateVars.result = data.rows;
-     templateVars.fields = data.fields;
+     const menus = data.rows;
+    templateVars.result = data.rows;
+    templateVars.fields = data.fields;
+   // templateVars = { data };
      res.render('menus', templateVars);
       //console.log(menus);
       //res.json({ menus });
@@ -26,10 +27,12 @@ router.get("/", function(req, res) {
 
 router.get("/:id", function(req, res) {
   const templateVars = {};
+  let id = req.params.id;
+    const params = [id];
   const comm = `SELECT menus.* WHERE id = $1;`;
 
 
-  db.query(comm)
+  db.query(comm, params)
     .then(data => {
       templateVars.result = data.rows;
      templateVars.fields = data.fields;

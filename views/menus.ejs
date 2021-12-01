@@ -1,35 +1,23 @@
-<section>
+<%= JSON.stringify(locals.result) %>
+  <% for (let row in locals.result) { %>
+  <section class="menu-rows">
+    <div>
+      <img class="menu-photo" src="<%= locals.result[row].picture_url %>" alt="Picture of food">
+    </div>
+    <div class="menu-contents">
+      <h1 class="menu-name"><%= locals.result[row].name %></h1>
+      <div class="menu-description"><%= locals.result[row].description %></div>
+      <dish class="menu-price">$<%= (locals.result[row].price *.01).toFixed(2) %></dish>
+      <div class="add-to-cart">
+        <form action="/order" method="get">
+          <input type="hidden" id="id" name="id" value=<%= locals.result[row].id %>>
 
-  <header class="menu-banner">
-    <h1>Our Menu</h1>
+          <input type="hidden" id="price" name="price" value=<%= locals.result[row].price %>>
 
-    <body>
-
-      <div class='tc'>
-        <%= JSON.stringify(locals.result) %>
-        <table style="border: 1px solid black;">
-          <section class="menus_item">
-          <!-- <tr>
-            <% for (field of locals.fields) { %>
-              <th><%= field.name%></th>
-            <% } %>
-          </tr> -->
-
-          <% for (row of locals.result) { %>
-            <ul class="property-listing__details">
-            <tr>
-              <li><%= row.id %></li>
-              <li><%= row.name %> </li>
-              <li><%= row.picture_url %></li>
-              <li><img src="<%=row.picture_url %>" alt="Food"></li>
-              <li><%= row.description %> </li>
-              <li><%= row.price %> </li>
-            </tr>
-            </ul>
-          <% } %>
-        </table>
+          <button type="submit">Add to cart</button>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
+  <% } %>
 
-
-    </body>

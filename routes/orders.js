@@ -7,6 +7,7 @@ module.exports = (db) => {
 router.get("/", function(req, res) {
   const templateVars = {};
   const comm = `SELECT * FROM orders`;
+  // const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
 
   db.query(comm)
     .then(data => {
@@ -30,10 +31,12 @@ router.get("/", function(req, res) {
 
 router.get("/:id", function(req, res) {
   const templateVars = {};
+  let id = req.params.id;
+    const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
 
 
-  db.query(comm)
+  db.query(comm, params)
     .then(data => {
       templateVars.result = data.rows;
      templateVars.fields = data.fields;
@@ -50,11 +53,16 @@ router.get("/:id", function(req, res) {
 /////insert new order to the list//////
 router.post("/:id", function(req, res) {
   const templateVars = {};
+  const customer_id = 1;
+  const order_time = new Date();
+  const {menu_id,quantity, cost_item} = req.body;
+  const params = [customer_id, menu_id,quantity, cost_item, order_time];
+
   const comm = `INSERT INTO orders
-  customer_id, menu_id,quantity, cost_item, order_time VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
+  (customer_id, menu_id,quantity, cost_item, order_time) VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
 
 /////Confused////
-  db.query(comm)
+  db.query(comm, params)
     .then(data => {
     //   templateVars.result = data.rows;
     //  templateVars.fields = data.fields;
