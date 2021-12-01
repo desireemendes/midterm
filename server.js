@@ -54,6 +54,7 @@ const database = require("./routes/database");
 const customers = require("./routes/customers");
 const menus = require("./routes/menus");
 const orders= require("./routes/orders");
+const { render } = require('ejs');
 
 
 // Mount all resource routes

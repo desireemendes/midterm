@@ -28,6 +28,7 @@ router.get("/", function(req, res) {
 router.get("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
+  console.log("id is",id);
     const params = [id];
   const comm = `SELECT menus.* WHERE id = $1;`;
 
@@ -50,7 +51,7 @@ return router;
 
  };
 
- app.get("/menus", (req,res) => {
-  res.render("menus");
-});
+//  app.get("/menus", (req,res) => {
+//   res.render("menus");
+// });
 

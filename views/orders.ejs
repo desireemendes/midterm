@@ -14,20 +14,21 @@
       <span class="cart-item"><%= locals.result[item].name %></span>
       <span class="cart-item-cost_item"><%= (locals.result[item].cost_item)*0.01 %></span>
     </li>
+    <input  id="price" name="price" value=<%= locals.result[item].cost_item + subtotal %>>
     <% subtotal = subtotal + locals.result[item].cost_item %>
 
     <% } %>
   </div>
-<% let tax = subtotal + 0.13; %>
-<% let total = subtotal + tax; %>
+<% let tax = subtotal * 0.13; %>
+<% let total = subtotal * tax; %>
 <% let checkout = { } %>
 <div class="cart-footer">
   <div class="cart-total">
-    <p>Subtotal: <%= (subtotal + .01) %></p>
-    <p>Tax: <%= (tax + .01) %></p>
-    <p>Total: <%= (total + .01)%></p>
+    <p>Subtotal: <%= (subtotal * .01) %></p>
+    <p>Tax: <%= (tax * .01) %></p>
+    <p>Total: <%= (total * .01)%></p>
   </div>
-  <form action="/checkouts" method="POST">
+  <form action="/" method="POST">
 
     <input type="hidden" id="id" name="id" value=<%= locals.result.id %>>
     <input type="hidden" id="total" name="total" value=<%= total %>>

@@ -6,7 +6,10 @@ module.exports = (db) => {
 
 router.get("/", function(req, res) {
   const templateVars = {};
- // const comm = `SELECT * FROM orders`;
+  // let id = req.body;
+  // console.log("id is",id);
+  //   const params = [id];
+  //const comm = `SELECT * FROM orders`;
    const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id;` //WHERE orders.id = $1;`;
 
   db.query(comm)
@@ -31,7 +34,7 @@ router.get("/", function(req, res) {
 
 router.get("/:id", function(req, res) {
   const templateVars = {};
-  let id = req.params.id;
+  let id = req.body;
     const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
 
@@ -56,6 +59,7 @@ router.post("/:id", function(req, res) {
   const customer_id = 1;
   const order_time = new Date();
   const {menu_id,quantity, cost_item} = req.body;
+  console.log(req.body);
   const params = [customer_id, menu_id,quantity, cost_item, order_time];
 
   const comm = `INSERT INTO orders

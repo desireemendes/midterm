@@ -10,7 +10,7 @@
       <div class="menu-description"><%= locals.result[row].description %></div>
       <dish class="menu-price">$<%= (locals.result[row].price *.01).toFixed(2) %></dish>
       <div class="add-to-cart">
-        <form action="/order" method="get">
+        <form action="/order" method="post">
           <input type="hidden" id="id" name="id" value=<%= locals.result[row].id %>>
 
           <input type="hidden" id="price" name="price" value=<%= locals.result[row].price %>>
