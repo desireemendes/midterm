@@ -6,19 +6,23 @@
   <title>RDT Restaurant</title>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-   <!-- Font Awesome -->
-   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-   <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/restaurant.js"></script>
 
 </head>
 
@@ -26,17 +30,27 @@
 
   <nav class="navbar bg-dark navbar-expand-lg navbar-dark">
     <div id="nav-text">
-    <a class="navbar-brand" href="">RDT</a>
-  </div>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  </div>
+      <a class="navbar-brand" href="">RDT</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
   </nav>
   </div>
   <!-- main container of the page -->
   <main id="main-container">
 
+    <ul class="container">
+
+
+
+      <form class="pick-up-alert" method="POST" action="/api/twilio/pick-up-alert">
+        <button id="finished" name="finished" type="submit"
+          class="btn btn-primary">Finished!</button>
+      </form>
+    </ul>
 
   </main>
 

@@ -54,7 +54,8 @@ const database = require("./routes/database");
 const customers = require("./routes/customers");
 const menus = require("./routes/menus");
 const twilioRoutes = require("./routes/twilio");
-const restaurantRoutes = require("./routes/restaurant");
+const restaurantRoutes = require("./routes/restaurant")
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,9 +64,9 @@ app.use("/api/users", customersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", customers(db));
 app.use("/menu", menus(db));
-app.use("/orders", orders(db))
-app.use("/restaurant", restaurantRoutes(db));
+// app.use("/orders", orders(db))
 app.use("/api/twilio", twilioRoutes(db));
+app.use("/api/restaurant", restaurantRoutes(db));
 
 
 // app.use("/api/apiRoutes", usersRoutes(db));
@@ -96,3 +97,7 @@ app.get("/menus", (req,res) => {
 app.get("/orders", (req,res) => {
   res.render("orders");
 });
+
+app.get("/restaurant", (req, res) => {
+  res.render("restaurant")
+})
