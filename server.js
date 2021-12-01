@@ -62,6 +62,7 @@ app.use("/api/users", customersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", customers(db));
 app.use("/menu", menus(db));
+app.use("/orders", orders(db))
 
 
 // app.use("/api/apiRoutes", usersRoutes(db));
@@ -87,4 +88,8 @@ app.listen(PORT, () => {
 
 app.get("/menus", (req,res) => {
   res.render("menus");
+});
+
+app.get("/orders", (req,res) => {
+  res.render("orders");
 });
