@@ -50,8 +50,8 @@ const apiRoutes = require("./routes/apiRoutes");
 const database = require("./routes/database");
 const customers = require("./routes/customers");
 const menus = require("./routes/menus");
-const orders= require("./routes/orders");
-const { render } = require('ejs');
+const twilioRoutes = require("./routes/twilio");
+const restaurantRoutes = require("./routes/restaurant")
 
 
 // Mount all resource routes
@@ -62,7 +62,9 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/customers", customers(db));
 app.use("/login", customers(db));
 app.use("/menu", menus(db));
-app.use("/order", orders(db));
+// app.use("/orders", orders(db))
+app.use("/api/twilio", twilioRoutes(db));
+app.use("/api/restaurant", restaurantRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -86,4 +88,14 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-module.exports = db;
+app.get("/menus", (req,res) => {
+  res.render("menus");
+});
+
+app.get("/orders", (req,res) => {
+  res.render("orders");
+});
+
+app.get("/restaurant", (req, res) => {
+  res.render("restaurant")
+})

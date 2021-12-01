@@ -4,19 +4,97 @@
 <head>
   <title>Home Page</title>
 
+  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+
+
 </head>
 
 <body>
-  <%- include('./partials/_header') %>
+<!-- Nav Bar -->
+<nav class="navbar bg-dark navbar-expand-lg navbar-dark">
+  <div id="nav-text">
+  <a class="navbar-brand" href="">RDT</a>
+</div>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/menu">Menu</a>
+      </li>
+  </ul>
+</div>
+</nav>
+</div>
+<section class="carousel" id="testimonials">
 
-  <h1>Have fun! 🥔</h1>
+  <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active container-fluid">
+        <h2 class="testimonial-text"></h2>
+        <img src="https://www.wearegurgaon.com//wp-content/uploads/2020/07/sagar-ratna-gurgaon.gif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item container-fluid">
+      <img src="https://www.quickanddirtytips.com/sites/default/files/styles/convert_webp_article_main_image/public/images/22646/traditional%20indian%20cuisine.png?itok=-rHiqUqU" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://theveganreview.com/wp-content/uploads/2020/08/Untitled-design-13-1.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+</div>
+<a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+<span class="carousel-control-next-icon"></span>
+</a>
+</div>
+</section>
+<br>
+<br>
+<section class="image-cards">
+  <div id="menu" class="row row-cols-md-3 g-4">
+    <!-- ALL the menu items are appended here using jQuery -->
+  </div>
+</section>
+
+  </form>
+</section>
+
+
+
+  <!-- <h1>Have fun! 🥔</h1> -->
 </body>
+
+ <!-- Footer -->
+
+ <footer class="white-section" id="footer">
+  <div class="container-fluid">
+    <i class="social-icon fab fa-facebook-f"></i>
+    <i class="social-icon fab fa-twitter"></i>
+    <i class="social-icon fab fa-instagram"></i>
+    <i class="social-icon fas fa-envelope"></i>
+    <p>© Copyright 2021 RDT</p>
+  </div>
+</footer>
 
 </html>
