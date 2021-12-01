@@ -1,6 +1,5 @@
 const express = require('express');
 const router  = express.Router();
-// const bcrypt = require(bcrypt);
 const app = express();
 
 
@@ -89,17 +88,3 @@ return router;
 //     }
 //     exports.login = login;
 
-//     router.post('/login', (req, res) => {
-//       // const {email, password} = req.body;
-//       // console.log(req.body);
-//       login(email, password)
-//         .then(customer => {
-//           if (!customer) {
-//             res.send({error: "error"});
-//             return;
-//           }
-//           req.session.customerId = customer.id;
-//           res.send({customer: {name: customer.name, email: customer.email, id: customer.id}});
-//         })
-//         .catch(e => res.send(e));
-//     });
