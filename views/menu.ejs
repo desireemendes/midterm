@@ -11,7 +11,12 @@
           <article class="menu">
             <section class="menu_preview">
               <ul style="list-style: none;">
-                <li class="food_name"><%= food.name %></li>
+                <div class="food_title">
+                  <li class="food_name"><%= food.name %></li>
+                  <button type="submit" class="btn btn-primary mb-3 ">Add to Cart</button>
+                </div>
+
+
                 <li><img class="food_image" src="<%= food.picture_url %>"></li>
                 <li><%= food.description %></li>
                 <li><%= food.price %></li>
