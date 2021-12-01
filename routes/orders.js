@@ -6,18 +6,18 @@ module.exports = (db) => {
 
 router.get("/", function(req, res) {
   const templateVars = {};
-  const comm = `SELECT * FROM orders`;
-  // const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
+ // const comm = `SELECT * FROM orders`;
+   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id;` //WHERE orders.id = $1;`;
 
   db.query(comm)
     .then(data => {
-    //   templateVars.result = data.rows;
-    //  templateVars.fields = data.fields;
-    //  res.render('orders', templateVars);
-      const orders = data.rows;
+      templateVars.result = data.rows;
+     templateVars.fields = data.fields;
+     res.render('orders', templateVars);
+  //     const orders = data.rows;
 
-      res.json({ orders
-   });
+  //     res.json({ orders
+  //  });
     })
     .catch(err => {
       res
