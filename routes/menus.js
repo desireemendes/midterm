@@ -24,6 +24,24 @@ router.get("/", function(req, res) {
     });
 });
 
+router.get("/:id", function(req, res) {
+  const templateVars = {};
+  const comm = `SELECT menus.* WHERE id = $1;`;
+
+
+  db.query(comm)
+    .then(data => {
+      templateVars.result = data.rows;
+     templateVars.fields = data.fields;
+     res.render('menus', templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 return router;
 
 
