@@ -4,20 +4,21 @@
 <head>
   <title>Home Page</title>
 
-  <!-- Font Awesome -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/menuLoad.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 
 
 </head>
@@ -34,10 +35,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-          <a class="nav-link" href="">Login</a>
+          <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="">Order</a>
+          <a class="nav-link" href="/menu">Menu</a>
       </li>
   </ul>
 </div>
@@ -76,34 +77,6 @@
   </div>
 </section>
 
-<!-- order summary section -->
-<section class ="card" id="order-container">
-  <header class="order-header">
-    <h5 class="card-title">Your Order</h5>
-    <button type="button" class="btn btn-default" id="clear-cart">Clear</button>
-  </header>
-
-  <form id="place-order" action="/orders" method="POST">
-    <section class="item-list">
-      <table class="order-table">
-        <thead>
-          <tr>
-            <th scope="col" class="item-name">Item</th>
-            <th scope="col" class="quantity">qty</th>
-            <th scope="col" class="price">price</th>
-          </tr>
-        </thead>
-        <tbody id="selected-items-container"></tbody>
-      </table>
-      <table class="order-table" id="sum-order"></table>
-    </section>
-
-
-    <footer class="order-footer">
-      <div class="order-button">
-        <button type="submit" class="btn btn-primary bg-dark">PLACE ORDER</button>
-      </div>
-    </footer>
   </form>
 </section>
 
