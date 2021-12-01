@@ -54,8 +54,9 @@ const widgetsRoutes = require("./routes/widgets");
 const apiRoutes = require("./routes/apiRoutes");
 // const database = require("./routes/database");
 const customers = require("./routes/customers");
+const customersRoutes = require("./routes/customers");
 const menus = require("./routes/menus");
-// const orders = require("./routes/orders");
+const orders = require("./routes/orders");
 
 
 
