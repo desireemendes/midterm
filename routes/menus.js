@@ -35,23 +35,27 @@ module.exports = (db) => {
 
   router.post("/:id", (req, res) => {
     const templateVars = {};
-  const customer_id = 1;
-  const order_time = new Date();
+  //const customer_id = 1;
   const {menu_id,quantity, cost_item} = req.body;
   console.log(req.body);
-  const params = [customer_id, menu_id,quantity, cost_item, order_time];
+  const params = [customer_id, menu_id,quantity, cost_item];
   console.log(params);
 
-  const comm = `INSERT INTO orders
-  (customer_id, menu_id,quantity, cost_item, order_time) VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
+  // const comm = `INSERT INTO orders
+  // (customer_id, menu_id, quantity, cost_item) VALUES ($1, $2, $3, $4)
+  //RETURNING*;`;
+
+  const comm = `INSERT INTO orders (customer_id, menu_id, quantity, cost_item)
+  VALUES (1, 2, 2, 450.00) RETURNING*;`;
+
 
 /////Confused////
-  db.query(comm, params)
+  db.query(comm)
     .then(data => {
     //   templateVars.result = data.rows;
     //  templateVars.fields = data.fields;
     //  res.render('orders', templateVars);
-    res.redirect('/');
+    res.redirect('/menu');
     })
     .catch(err => {
       res
