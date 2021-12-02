@@ -11,11 +11,8 @@ module.exports = (db) => {
 
 router.get("/", function(req, res) {
   const templateVars = {};
-  // let id = req.body;
-  // console.log("id is",id);
-  //   const params = [id];
-  //const comm = `SELECT * FROM orders`;
-   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
+   const comm = `SELECT orders.*, menus.name, menus.price
+   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
 
   db.query(comm)
     .then(data => {
