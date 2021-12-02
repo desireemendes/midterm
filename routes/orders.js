@@ -12,12 +12,13 @@ module.exports = (db) => {
 router.get("/", function(req, res) {
   const templateVars = {};
    const comm = `SELECT orders.*, menus.name, menus.price
-   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
+   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE menus.id = 5;`;
 
   db.query(comm)
     .then(data => {
       templateVars.result = data.rows;
      templateVars.fields = data.fields;
+
      res.render('orders', templateVars);
   //     const orders = data.rows;
 
@@ -62,16 +63,19 @@ let id = req.params.id;
 router.get("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
-  console.log(">>>>>>>>>",req.body);
+  //
+  console.log(">>>>>>>>>",req);
     const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
 
   db.query(comm)
     .then(data => {
-      templateVars.result = data.rows;
+      templateVars.result = data.rows[0];
      templateVars.fields = data.fields;
-     res.render('orders', templateVars);
+     console.log(data.rows);
+     res.json(templateVars);
+    // res.render('orders', templateVars);
     })
     .catch(err => {
       res
