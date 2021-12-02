@@ -108,9 +108,9 @@ app.get("/menus", (req,res) => {
   res.render("menus");
 });
 
-app.get("/orders", (req,res) => {
-  res.render("orders");
-});
+// app.get("/orders", (req,res) => {
+//   res.render("orders");
+// });
 
 app.get("/restaurant", (req, res) => {
   res.render("restaurant")

@@ -32,5 +32,35 @@ module.exports = (db) => {
       });
   });
 
+
+  router.post("/:id", (req, res) => {
+    const templateVars = {};
+  const customer_id = 1;
+  const order_time = new Date();
+  const {menu_id,quantity, cost_item} = req.body;
+  console.log(req.body);
+  const params = [customer_id, menu_id,quantity, cost_item, order_time];
+  console.log(params);
+
+  const comm = `INSERT INTO orders
+  (customer_id, menu_id,quantity, cost_item, order_time) VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
+
+/////Confused////
+  db.query(comm, params)
+    .then(data => {
+    //   templateVars.result = data.rows;
+    //  templateVars.fields = data.fields;
+    //  res.render('orders', templateVars);
+    res.redirect('/');
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+
+
   return router;
 };

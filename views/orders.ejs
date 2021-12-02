@@ -21,23 +21,25 @@
     <% for (let item in locals.result) { %>
     <li> <span class="cart-item-quantity"><%= locals.result[item].quantity %></span>
       <span class="cart-item"><%= locals.result[item].name %></span>
-      <span class="cart-item-cost_item"><%= (locals.result[item].cost_item)*0.01 %></span>
+      <span class="cart-item-cost_item"><%= (locals.result[item].cost_item * 0.01).toFixed(2) %></span>
     </li>
-    <input  id="price" name="price" value=<%= locals.result[item].cost_item + subtotal %>>
+
     <% subtotal = subtotal + locals.result[item].cost_item %>
 
     <% } %>
   </div>
 <% let tax = subtotal * 0.13; %>
-<% let total = subtotal * tax; %>
+<% let total = subtotal - tax; %>
 <% let checkout = { } %>
 <div class="cart-footer">
   <div class="cart-total">
-    <p>Subtotal: <%= (subtotal * .01) %></p>
-    <p>Tax: <%= (tax * .01) %></p>
-    <p>Total: <%= (total * .01)%></p>
+    <p>Subtotal: <%= (total*.01).toFixed(2) %></p>
+    <p>Tax: <%= (tax*.01).toFixed(2)  %></p>
+    <p>Total: <%= (subtotal*.01).toFixed(2) %></p>
+
   </div>
-  <form action="/" method="POST">
+  <!--need to change-->
+  <form action="/menu/id" method="post">
 
     <input type="hidden" id="id" name="id" value=<%= locals.result.id %>>
     <input type="hidden" id="total" name="total" value=<%= total %>>
