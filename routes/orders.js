@@ -66,7 +66,7 @@ router.get("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
   console.log(">>>>>>>>>",req.params.id);
-    const params = [id];
+    //const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
 
