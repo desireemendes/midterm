@@ -33,15 +33,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
-<<<<<<< HEAD
-  let id = req.session.id;
-   console.log(req.body);
-     const params = [id];
-=======
-let id = req.params.id;
-  // console.log(req.body);
-    // const params = [id];
->>>>>>> a57d1860bcf2de6e08d48cee49cfad54ce677767
+let id = req.session.id;
+console.log(req.body);
+const params = [id];
   //const comm = `SELECT * FROM orders`;
    const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
