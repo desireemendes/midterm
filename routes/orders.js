@@ -11,11 +11,8 @@ module.exports = (db) => {
 
 router.get("/", function(req, res) {
   const templateVars = {};
-  // let id = req.body;
-  // console.log("id is",id);
-  // const params = [id];
-  //const comm = `SELECT * FROM orders`;
-   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
+   const comm = `SELECT orders.*, menus.name, menus.price
+   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
 
   db.query(comm)
     .then(data => {
@@ -36,13 +33,19 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
+<<<<<<< HEAD
   let id = req.session.id;
    console.log(req.body);
      const params = [id];
+=======
+let id = req.params.id;
+  // console.log(req.body);
+    // const params = [id];
+>>>>>>> a57d1860bcf2de6e08d48cee49cfad54ce677767
   //const comm = `SELECT * FROM orders`;
-   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = $1;`;
+   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
-  db.query(comm, params)
+  db.query(comm)
     .then(data => {
       templateVars.result = data.rows;
      templateVars.fields = data.fields;
@@ -65,7 +68,7 @@ router.post("/", function(req, res) {
 router.get("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
-  console.log(">>>>>>>>>",req.params.id);
+  console.log(">>>>>>>>>",req.body);
     const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
@@ -84,24 +87,19 @@ router.get("/:id", function(req, res) {
 });
 
 
-/////insert new order to the list//////
 router.post("/:id", function(req, res) {
   const templateVars = {};
-  const customer_id = 1;
-  const order_time = new Date();
-  const {menu_id,quantity, cost_item} = req.body;
-  console.log(req.body);
-  const params = [customer_id, menu_id,quantity, cost_item, order_time];
+  let id = req.params.id;
+  console.log(">>>>>>>>>",req.params.id);
+   // const params = [id];
+  const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
-  const comm = `INSERT INTO orders
-  (customer_id, menu_id,quantity, cost_item, order_time) VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
 
-  db.query(comm, params)
+  db.query(comm)
     .then(data => {
-     templateVars.result = data.rows;
+      templateVars.result = data.rows;
      templateVars.fields = data.fields;
      res.render('orders', templateVars);
-    res.redirect('/');
     })
     .catch(err => {
       res
@@ -109,6 +107,7 @@ router.post("/:id", function(req, res) {
         .json({ error: err.message });
     });
 });
+
 
 
 return router;
