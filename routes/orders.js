@@ -27,6 +27,13 @@ router.get("/", function(req, res) {
       }
     //   templateVars.result = data.rows;
     //  templateVars.fields = data.fields;
+   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE menus.id = 5;`;
+
+  db.query(comm)
+    .then(data => {
+      templateVars.result = data.rows;
+     templateVars.fields = data.fields;
+
      res.render('orders', templateVars);
   //     const orders = data.rows;
 
@@ -42,15 +49,12 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
-<<<<<<< HEAD
   let id = req.session.id;
    console.log(req.body);
      const params = [id];
-=======
 let id = req.params.id;
   // console.log(req.body);
     // const params = [id];
->>>>>>> a57d1860bcf2de6e08d48cee49cfad54ce677767
   //const comm = `SELECT * FROM orders`;
    const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
@@ -87,6 +91,10 @@ router.get("/:id", function(req, res) {
   `;
   // JOIN menus ON menus.id = menu_id
 
+  //
+  console.log(">>>>>>>>>",req);
+    const params = [id];
+  const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
 
   db.query(comm)
@@ -102,6 +110,11 @@ router.get("/:id", function(req, res) {
     //   templateVars.result = data.rows;
     //  templateVars.fields = data.fields;
      res.render('orders', templateVars);
+      templateVars.result = data.rows[0];
+     templateVars.fields = data.fields;
+     console.log(data.rows);
+     res.json(templateVars);
+    // res.render('orders', templateVars);
     })
     .catch(err => {
       res

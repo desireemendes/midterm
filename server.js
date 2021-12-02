@@ -61,6 +61,7 @@ const restaurantRoute = require("./routes/restaurant");
 
 
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
@@ -85,6 +86,9 @@ app.use("/order", orders(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/cart", (req, res) => {
+  res.render("cart");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
@@ -93,6 +97,7 @@ app.listen(PORT, () => {
 // app.get("/menus", (req,res) => {
 //   res.render("menus");
 // });
+
 
 // app.get("/orders", (req,res) => {
 //   res.render("orders");
