@@ -7,21 +7,24 @@
 <%- include('partials/_header') -%>
 <body>
   <% for (food of menu) { %>
-    <article class="menu">
-        <div class="menu_preview">
-          <div class="top_line">
-            <p>$<%= food.price %></p>
-            <button type="submit" class="btn btn-primary mb-3 ">
-              <a class="order-page" href="/order">
-                Add to Cart
-              </a>
-            </button>
+    <form action="/order/id" method="get">
+
+      <article class="menu">
+          <div class="menu_preview">
+            <div class="top_line">
+              <p>$<%= food.price %></p>
+              <button type="submit" class="btn btn-primary mb-3 ">
+                <a class="order-page" href="/order">
+                  Add to Cart
+                </a>
+              </button>
+            </div>
+            <img class="food_image" src="<%= food.picture_url %>">
+            <h5 class="food_name"><%= food.name %></h5>
+            <p><%= food.description %></p>
           </div>
-          <img class="food_image" src="<%= food.picture_url %>">
-          <h5 class="food_name"><%= food.name %></h5>
-          <p><%= food.description %></p>
-        </div>
-    </article>
+      </article>
+    </form>
   <% } %>
 
 </body>

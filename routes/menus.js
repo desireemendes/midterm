@@ -1,15 +1,25 @@
 const express = require('express');
+const app = express();
 const router  = express.Router();
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+
 
 module.exports = (db) => {
 
   // GET route for menu items
   router.get("/", (req, res) => {
     let query = `
-    SELECT * FROM menus
+    SELECT * FROM menus;
     `;
     db.query(query)
       .then(data => {
+        // const id = data.rows[0].id;
+        // req.session.id = id;
+        // console.log("id>>>",req.session.id)
         const menu = data.rows;
         const templateVars = { menu }
         // res.json({ menu });
@@ -24,28 +34,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-// router.get("/", function(req, res) {
-//   const comm = `SELECT * FROM menus`;
-
-//   db.query(comm)
-//     .then(data => {
-//       const menus = data.rows;
-//       console.log(menus);
-//       res.json({ menus });
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-// });
-
-// return router;
-
-
-//  };
-
-//  app.get("/menus", (req,res) => {
-//   res.render("menus");
-// });
