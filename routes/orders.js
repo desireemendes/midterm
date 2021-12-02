@@ -13,7 +13,7 @@ router.get("/", function(req, res) {
   const templateVars = {};
   // let id = req.body;
   // console.log("id is",id);
-  // const params = [id];
+  //   const params = [id];
   //const comm = `SELECT * FROM orders`;
    const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE orders.id = 5;`;
 
@@ -96,11 +96,12 @@ router.post("/:id", function(req, res) {
   const comm = `INSERT INTO orders
   (customer_id, menu_id,quantity, cost_item, order_time) VALUES ($1, $2, $3, $4, $5) RETURNING*;`;
 
+/////Confused////
   db.query(comm, params)
     .then(data => {
-     templateVars.result = data.rows;
-     templateVars.fields = data.fields;
-     res.render('orders', templateVars);
+    //   templateVars.result = data.rows;
+    //  templateVars.fields = data.fields;
+    //  res.render('orders', templateVars);
     res.redirect('/');
     })
     .catch(err => {
