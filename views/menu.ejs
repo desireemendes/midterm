@@ -7,9 +7,11 @@
 <%- include('partials/_header') -%>
 <body>
   <% for (food of menu) { %>
+    <form action="/order/1" method="get">
     <article class="menu">
         <div class="menu_preview">
           <div class="top_line">
+
             <p>$<%= food.price %></p>
             <button type="submit" class="btn btn-primary mb-3 ">Add to Cart</button>
           </div>
@@ -19,6 +21,7 @@
         </div>
     </article>
   <% } %>
+</form>
 
 </body>
 
