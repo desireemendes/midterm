@@ -57,7 +57,7 @@ const customers = require("./routes/customers");
 const customersRoutes = require("./routes/customers");
 const menus = require("./routes/menus");
 const orders = require("./routes/orders");
-
+const restaurantRoute = require("./routes/restaurant");
 
 
 
@@ -70,7 +70,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/customers", customers(db));
 app.use("/login", customers(db));
 app.use("/menu", menus(db));
-
+app.use("/restaurant", restaurantRoute(db));
 app.use("/order", orders(db));
 
 
@@ -94,12 +94,15 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
 });
 
-app.get("/menus", (req,res) => {
-  res.render("menus");
-});
+// app.get("/menus", (req,res) => {
+//   res.render("menus");
+// });
 
 
 // app.get("/orders", (req,res) => {
 //   res.render("orders");
 // });
 
+// app.get("/restaurant", (req, res) => {
+//   res.render("restaurant")
+// })
