@@ -81,24 +81,10 @@ app.use("/order", orders(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-// /api/endpoints
-// const apiRouter = express.Router();
-// apiRoutes(apiRouter, database);
-// app.use('/api', apiRouter);
-
-
 
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-// app.get("login", (req, res) => {
-//   res.render("login")
-// });
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
@@ -112,6 +98,3 @@ app.get("/menus", (req,res) => {
 //   res.render("orders");
 // });
 
-app.get("/restaurant", (req, res) => {
-  res.render("restaurant")
-})
