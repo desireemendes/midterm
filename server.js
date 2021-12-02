@@ -98,9 +98,6 @@ app.listen(PORT, () => {
 //   res.render("orders");
 // });
 
-<<<<<<< HEAD
 // app.get("/restaurant", (req, res) => {
 //   res.render("restaurant")
 // })
-=======
->>>>>>> a57d1860bcf2de6e08d48cee49cfad54ce677767
