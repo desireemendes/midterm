@@ -41,12 +41,23 @@
   </div>
   <!-- main container of the page -->
   <main id="main-container">
+    <!-- DISPLAY ORDERS IN CARDS HERE  -->
 
-    <ul class="container">
-
-
-
-      <form class="pick-up-alert" method="POST" action="/api/twilio/pick-up-alert">
+    <table class="table table-sm table-borderless">
+      <tbody>
+        <%= JSON.stringify(locals.result) %>
+        <% for (let item of locals.result) { %>
+          <tr>
+            <td>
+              <%= item %>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <li class="list-group-item customerName" value="<%= orders[order].customerName %>">
+      <strong>Customer Name:</strong> <%= locals.result[item].customerName %>
+      <form class="pick-up-alert" method="POST" action="/routes/twilio/pick-up-alert">
         <button id="finished" name="finished" type="submit"
           class="btn btn-primary">Finished!</button>
       </form>

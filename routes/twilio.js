@@ -29,17 +29,17 @@ module.exports = (db) => {
       let messageToOwner = `${customerName} has placed an order for `;
       let messageToCustomer = `Thank you ${customerName}. You have placed an order for `;
 
-      for (const item of order) {
+      for (const item of orders) {
         messageToOwner += `${orders.quantity} ${menus.name}, `
         messageToCustomer += `${orders.quantity} ${menus.name}, `
       };
 
-      let queryString = `
+      let comm = `
         SELECT phone_number
         FROM customers
         WHERE customers.id = 1
       `;
-      db.query(queryString)
+      db.query(comm)
         .then(data => {
           const restaurantNumber = data.rows[0].phone_number;
           client.messages
@@ -53,7 +53,7 @@ module.exports = (db) => {
           //send message to the restaurant when the order is placed
           client.messages
           .create({
-            body: textMessageToOwner,
+            body: textMessageToRestaurant,
             from: '+12078172429',
             to: restaurantNumber
           })

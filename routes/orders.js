@@ -36,7 +36,7 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
-let id = req.session.id;
+  let id = req.session.id;
    console.log(req.body);
      const params = [id];
   //const comm = `SELECT * FROM orders`;
