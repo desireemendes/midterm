@@ -7,7 +7,7 @@
 <%- include('partials/_header') -%>
 <body>
   <% for (food of menu) { %>
-    <form action="/order/5" method="post">
+    <form action="/order/<%= food.id %>" method="post">
 
       <article class="menu">
           <div class="menu_preview">
@@ -16,10 +16,7 @@
               <button type="submit" class="btn btn-primary mb-3 ">
                 <!-- <a class="order-page" href="/order">
                   Add to Cart
-                </a>-->
-                <input type="hidden" id="id" name="id" value=<%= food.id %>>
-
-          <input type="hidden" id="price" name="price" value=<%= food.price %>>
+                </a> -->
               </button>
             </div>
             <img class="food_image" src="<%= food.picture_url %>">
