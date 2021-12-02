@@ -69,7 +69,6 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/api/customers", customers(db));
 app.use("/login", customers(db));
 app.use("/menu", menus(db));
-
 app.use("/order", orders(db));
 
 
