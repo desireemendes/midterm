@@ -44,7 +44,7 @@ module.exports = (db) => {
           const restaurantNumber = data.rows[0].phone_number;
           client.messages
           .create({
-             body: textMessageToCustomer,
+             body: '',
              from: '+12078172429',
              to: customerPhoneNumber
            })
@@ -53,7 +53,7 @@ module.exports = (db) => {
           //send message to the restaurant when the order is placed
           client.messages
           .create({
-            body: textMessageToRestaurant,
+            body: '',
             from: '+12078172429',
             to: restaurantNumber
           })
@@ -67,16 +67,12 @@ module.exports = (db) => {
 
     // POST Route for when the restaurant owner clicks on the Finished button and customer gets the final text
     router.post("/pick-up-alert", (req, res) => {
-      const customerName = req.body.customerName;
-      const phoneNumber = req.body.phoneNumber;
-      const textMessage = `${customerName}, Your order is ready for pickup!`;
+
 
       // send message to the customer when order is ready
       client.messages
       .create({
-         body: textMessage,
-         from: '+12078172429',
-         to: phoneNumber
+
        })
        .then(message => {
         let queryDB = `
@@ -84,7 +80,7 @@ module.exports = (db) => {
         SET order_time = now()
         WHERE orders.id = $1;
         `;
-        db.query(queryDB, [req.body.orderId])
+        db.query(queryDB)
         .then(data => {
           console.log(data);
         })
