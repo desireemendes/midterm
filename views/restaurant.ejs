@@ -43,13 +43,24 @@
   <main id="main-container">
     <!-- DISPLAY ORDERS IN CARDS HERE  -->
 
-    <table class="table table-sm table-borderless">
+    <!-- <table class="table table-sm table-borderless"> -->
       <tbody>
-        <%= JSON.stringify(locals.result) %>
+
         <% for (let item of locals.result) { %>
           <tr>
             <td>
-              <%= item %>
+              <li class="order-history" value=""></li>
+              <strong>Order ID: </strong><%= item.order_id%>
+              <li>
+                <strong>Customer Name: </strong><%=item.name %>
+              </li>
+              <li>
+                <strong>Phone Number: </strong><%= item.phone_number%>
+              </li>
+              <li>
+                <strong>Pickup Time: </strong><%=item.pickup_time %>
+              </li>
+
             </td>
           </tr>
           <% } %>
