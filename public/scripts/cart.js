@@ -86,6 +86,7 @@ function show(){
     let cartArray = JSON.parse(cartcontent);
      let total = showCarts(cartArray);
      document.getElementById("cart-total").innerHTML=showTotal(total);
+     localStorage.clear();
       //showTotal(total);
 
 }
