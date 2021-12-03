@@ -37,29 +37,58 @@ $.ajax({
 
 })
 
+// function subTotal(){
+//   let subtotal = 0;
+//   for (let item of cart){
+
+//   }
+// }
+
 function createCart(cart){
+
   return ` <li> <span class="cart-item-quantity">${cart.quantity}</span>
   <span class="cart-item">${cart.name}</span>
   <span class="cart-item-cost_item">${cart.cost_item * 0.01}</span>
+
 </li>`
 
+
 }
+
 function showCarts(carts){
+  let subtotal = 0;
   for(let cart of carts){
     $(".cart-item-container").append(createCart(cart))
+    subtotal += cart.cost_item * 0.01;
+
+
   }
+  console.log("total>>>>>.",subtotal);
+return subtotal;
+}
 
-
+function showTotal(subtotal){
+  let tax = subtotal * 0.13;
+    let total = subtotal + tax;
+ return `
+  <div class="cart-total">
+    <p>Subtotal: ${subtotal} </p>
+    <p>Tax: ${tax} </p>
+    <p>Total: ${total} </p>
+</div>`
 }
 
 function show(){
-  console.log("yeah")
+ // console.log("yeah")
   let cartcontent = localStorage.getItem("cart")
+  console.log("items to the cart",cartcontent);
   if(cartcontent !== null) {
     let cartArray = JSON.parse(cartcontent);
-      showCarts(cartArray);
+     let total = showCarts(cartArray);
+     document.getElementById("cart-total").innerHTML=showTotal(total);
+      //showTotal(total);
 
-  }
+}
 }
 show();
 });
