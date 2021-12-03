@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const router  = express.Router();
+const router = express.Router();
 const cookieSession = require('cookie-session');
 app.use(cookieSession({
   name: 'session',
@@ -30,6 +30,7 @@ module.exports = (db) => {
 
 // GET route for order to insert or save
   router.post("/:id", (req, res) => {
+    console.log(req.params)
     const templateVars = {};
     const customer_id = 1;
     const {menu_id,quantity, cost_item} = req.params;

@@ -57,6 +57,7 @@ const customersRoutes = require("./routes/customers");
 const menus = require("./routes/menus");
 const orders = require("./routes/orders");
 const restaurantRoute = require("./routes/restaurant");
+const twilioRoute = require("./routes/twilio")
 
 
 
@@ -71,7 +72,7 @@ app.use("/login", customers(db));
 app.use("/menu", menus(db));
 app.use("/restaurant", restaurantRoute(db));
 app.use("/order", orders(db));
-
+app.use("/twilio", twilioRoute(db));
 
 
 

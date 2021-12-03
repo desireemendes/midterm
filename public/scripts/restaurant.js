@@ -7,7 +7,10 @@ $(".pick-up-alert").submit(function(event) {
   // const customerName =
   // const phoneNumber =
   // const orderID =
-  $.ajax('/routes/twilio/pick-up-alert', {
+
+
+
+  $.ajax('/twilio/pick-up-alert', {
     method: 'POST',
     dataType: 'TEXT',
     data: {
