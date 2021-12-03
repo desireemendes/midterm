@@ -23,7 +23,7 @@ module.exports = (db) => {
       FROM customers
       WHERE customers.id = $1
     `;
-    db.query(query, [customer])
+    db.query(query)
       .then(data => {
         const customerPhoneNumber = data.rows[0].phone_number;
         const customerName = data.rows[0].name;
