@@ -7,21 +7,30 @@
   <%- include('partials/_header') -%>
 
   <body>
-
-  <div class="container order">
-    <div class="row">
-      <div class="col-12">
-        <a href="/menu" class="back">← Keep Shopping</a>
+    <div class="main_container">
+      <div class="container order">
+        <div class="row">
+          <div class="col-12">
+            <a href="/menu" class="back">← Keep Shopping</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div id="footer">
-    <form method="POST" action="/user/order" id="checkout">
-      <input id="order-submit" type="submit" class="checkout" class="btn btn-primary btn-lg" value="Checkout"></input>
-    </form>
-    <span class="total">  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Total: $<span id="total"></span></span>
-  </div>
+      <div id="footer">
+        <form method="POST" action="/user/order" id="checkout">
+          <input id="order-submit" type="submit" class="checkout" class="btn btn-primary btn-lg" value="Checkout">
+        </input>
+        </form>
+        <span class="total">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Total: $
+          <span id="total"></span>
+        </span>
+      </div>
+
+    </div>
+
+
 
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"

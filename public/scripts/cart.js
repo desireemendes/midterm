@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
 $(".order-page").click(function(){
@@ -58,7 +56,6 @@ function show(){
   if(cartcontent !== null) {
     let cartArray = JSON.parse(cartcontent);
       showCarts(cartArray);
-
   }
 }
 show();

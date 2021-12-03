@@ -10,23 +10,8 @@ app.use(cookieSession({
 module.exports = (db) => {
 
 router.get("/", function(req, res) {
-  // const templateVars = {};
+  const templateVars = {};
    const comm = `SELECT orders.*, menus.name, menus.price
-   FROM orders
-   JOIN menus ON menus.id = orders.menu_id;
-   `;//WHERE orders.id = 5;`;
-
-  db.query(comm)
-    .then(data => {
-      // console.log("data is :", data.rows);
-      // console.log("dataField is :", data.fields);
-
-      const templateVars = {
-        results: data.row,
-        fields: data.fields
-      }
-    //   templateVars.result = data.rows;
-    //  templateVars.fields = data.fields;
    FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE menus.id = 5;`;
 
   db.query(comm)
@@ -49,9 +34,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
-  let id = req.session.id;
-   console.log(req.body);
-     const params = [id];
+  //let id = req.session.id;
+  // console.log(req.body);
+    // const params = [id];
 let id = req.params.id;
   // console.log(req.body);
     // const params = [id];
@@ -79,18 +64,8 @@ let id = req.params.id;
 
 
 router.get("/:id", function(req, res) {
-  // const templateVars = {};
+  const templateVars = {};
   let id = req.params.id;
-  console.log(">>>>>>>>>",id);
-    // const params = [id];
-  const comm = `
-  SELECT orders.*, menus.name, menus.price
-  FROM orders
-  JOIN menus ON menus.id = orders.menu_id
-  WHERE orders.id = ${id};
-  `;
-  // JOIN menus ON menus.id = menu_id
-
   //
   console.log(">>>>>>>>>",req);
     const params = [id];
@@ -98,18 +73,7 @@ router.get("/:id", function(req, res) {
 
 
   db.query(comm)
-
     .then(data => {
-      console.log("data is :", data.rows);
-
-      const templateVars = {
-        results: data.rows,
-        fields: data.fields
-      }
-      // console.log("dataField is :", data.fields);
-    //   templateVars.result = data.rows;
-    //  templateVars.fields = data.fields;
-     res.render('orders', templateVars);
       templateVars.result = data.rows[0];
      templateVars.fields = data.fields;
      console.log(data.rows);
