@@ -8,11 +8,11 @@ app.use(cookieSession({
 }));
 
 module.exports = (db) => {
-
+//get route for orders
 router.get("/", function(req, res) {
   const templateVars = {};
    const comm = `SELECT orders.*, menus.name, menus.price
-   FROM orders JOIN menus ON menus.id = orders.menu_id;`;//WHERE menus.id = 5;`;
+   FROM orders JOIN menus ON menus.id = orders.menu_id;`;
 
   db.query(comm)
     .then(data => {
@@ -20,10 +20,6 @@ router.get("/", function(req, res) {
      templateVars.fields = data.fields;
 
      res.render('orders', templateVars);
-  //     const orders = data.rows;
-
-  //     res.json({ orders
-  //  });
     })
     .catch(err => {
       res
@@ -34,13 +30,8 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   const templateVars = {};
-  //let id = req.session.id;
-  // console.log(req.body);
-    // const params = [id];
-let id = req.params.id;
-  // console.log(req.body);
-    // const params = [id];
-  //const comm = `SELECT * FROM orders`;
+  let id = req.params.id;
+
    const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
   db.query(comm)
@@ -48,10 +39,7 @@ let id = req.params.id;
       templateVars.result = data.rows;
      templateVars.fields = data.fields;
      res.render('orders', templateVars);
-  //     const orders = data.rows;
 
-  //     res.json({ orders
-  //  });
     })
     .catch(err => {
       res
@@ -60,14 +48,12 @@ let id = req.params.id;
     });
 });
 
-//////add item to orderlist////////////
+//////select item to orderlist////////////
 
 
 router.get("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
-  //
-  console.log(">>>>>>>>>",req);
     const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
@@ -78,7 +64,7 @@ router.get("/:id", function(req, res) {
      templateVars.fields = data.fields;
      console.log(data.rows);
      res.json(templateVars);
-    // res.render('orders', templateVars);
+
     })
     .catch(err => {
       res
@@ -87,12 +73,10 @@ router.get("/:id", function(req, res) {
     });
 });
 
-
+//post route for order
 router.post("/:id", function(req, res) {
   const templateVars = {};
   let id = req.params.id;
-  console.log(">>>>>>>>>",req.params.id);
-   // const params = [id];
   const comm = `SELECT orders.*, menus.name, menus.price FROM orders JOIN menus ON menus.id = orders.menu_id WHERE orders.id = ${id};`;
 
 

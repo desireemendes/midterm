@@ -13,7 +13,6 @@ $.ajax({
     if(oldcartcontent !== null) {
       console.log(oldcartcontent);
       let cartArray = JSON.parse(oldcartcontent);
-      //carts = [carts, ...cartArray];
       let newContent = carts.concat(cartArray);
 
       console.log("What is in cart",newContent);
@@ -35,13 +34,6 @@ $.ajax({
 
 })
 
-// function subTotal(){
-//   let subtotal = 0;
-//   for (let item of cart){
-
-//   }
-// }
-
 function createCart(cart){
 
   return ` <li> <span class="cart-item-quantity">${cart.quantity}</span>
@@ -61,7 +53,6 @@ function showCarts(carts){
 
 
   }
-  console.log("total>>>>>.",subtotal);
 return subtotal;
 }
 
@@ -77,7 +68,6 @@ function showTotal(subtotal){
 }
 
 function show(){
- // console.log("yeah")
   let cartcontent = localStorage.getItem("cart")
   console.log("items to the cart",cartcontent);
   if(cartcontent !== null) {
@@ -85,7 +75,6 @@ function show(){
      let total = showCarts(cartArray);
      document.getElementById("cart-total").innerHTML=showTotal(total);
      localStorage.clear();
-      //showTotal(total);
 
 }
 }

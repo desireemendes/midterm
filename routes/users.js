@@ -24,11 +24,4 @@ module.exports = (db) => {
   return router;
 };
 
-// router.get("/register", (req, res) => {
-//   const user_id = req.session.userId;
-//   return dbFuncs.getCustomerWithId(db, user_id)
-//   .then(result => {
-//     const user = result
-//     res.render("register",{ user });
-//   })
-// });
+

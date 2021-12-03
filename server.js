@@ -51,8 +51,7 @@ app.use(bodyParser.json());
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 
-const apiRoutes = require("./routes/apiRoutes");
-// const database = require("./routes/database");
+
 const customers = require("./routes/customers");
 const customersRoutes = require("./routes/customers");
 const menus = require("./routes/menus");
@@ -94,15 +93,4 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
 });
 
-// app.get("/menus", (req,res) => {
-//   res.render("menus");
-// });
 
-
-// app.get("/orders", (req,res) => {
-//   res.render("orders");
-// });
-
-// app.get("/restaurant", (req, res) => {
-//   res.render("restaurant")
-// })

@@ -26,9 +26,6 @@ router.get('/login', (req, res) => {
     `;
     db.query(query)
       .then(data => {
-        // const customer = data.rows;
-        // const templateVars = { customer }
-        // res.render('login', templateVars);
         const customer = customers[req.session.customer_id];
         res.render("login", { customer });
       })
@@ -38,8 +35,6 @@ router.get('/login', (req, res) => {
           .json({ error: err.message });
       });
 
-  // const templateVars = { customerId: null }
-  // res.render('login', templateVars);
 });
 
 
@@ -50,9 +45,7 @@ router.get('/register', (req, res) => {
     `;
     db.query(query)
       .then(data => {
-        // const customer = data.rows;
-        // const templateVars = { customer }
-        // res.render('login', templateVars);
+
         const customer = customers[req.session.customer_id];
         res.render("register", { customer });
       })
@@ -62,8 +55,6 @@ router.get('/register', (req, res) => {
           .json({ error: err.message });
       });
 
-  // const templateVars = { customerId: null }
-  // res.render('login', templateVars);
 });
 
 // Check the Email and Password to Login
@@ -83,20 +74,6 @@ app.post("/login", (req, res) => {
 });
 
 
-// router.post('/login', (req, res) => {
-//   const email = req.body.email;
-//   const password = req.body.password;
-
-//   db.query(`SELECT id, name, email, password FROM customers WHERE email = $1;`, [email])
-//   .then(data => {
-//     const id = data.rows[0].id
-//     const pass = data.rows[0].password;
-//   })
-//   .catch(err => {
-//     res.status(500)
-//     .json({ error: err.message})
-//   })
-// })
 
 
 // Create New User or Check if the User Id already Exist

@@ -42,7 +42,7 @@
 
 
 <!-- <div class="cart-body">
-  <!-- if items are added -->
+  if items are added -->
   <ul class="cart-item-container">
 
         <% let subtotal = 0; %>
@@ -72,8 +72,8 @@
     <p>Total: <%= (subtotal*.01).toFixed(2) %></p>
 </div>
 
-  <!--need to change-->
-  <form action="/menu/id" method="post">
+  <!--check out-->
+  <form action="/restaurant" method="post">
     <input type="hidden" id="id" name="id">
     <input type="hidden" id="total" name="total" value=<%= total %>>
     <input type="hidden" id="order_time" name="order_time" value=<%= order_time %>>

@@ -10,7 +10,6 @@ module.exports = (db) => {
       .then(data => {
         const order = data.rows;
         const templateVars = { menu }
-        // res.json({ menu });
         res.render('cart', templateVars);
 
       })
