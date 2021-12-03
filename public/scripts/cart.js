@@ -82,8 +82,12 @@ function show(){
   console.log("items to the cart",cartcontent);
   if(cartcontent !== null) {
     let cartArray = JSON.parse(cartcontent);
-      showCarts(cartArray);
-  }
+     let total = showCarts(cartArray);
+     document.getElementById("cart-total").innerHTML=showTotal(total);
+     localStorage.clear();
+      //showTotal(total);
+
+}
 }
 show();
 });
