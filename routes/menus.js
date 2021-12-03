@@ -17,10 +17,13 @@ module.exports = (db) => {
     `;
     db.query(query)
       .then(data => {
+
         // const id = data.rows[0].id;
         // req.session.id = id;
         // console.log("id>>>",req.session.id)
+
         const menu = data.rows;
+        // console.log("data: ", menu);
         const templateVars = { menu }
         // res.json({ menu });
         res.render('menu', templateVars);
