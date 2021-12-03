@@ -6,8 +6,8 @@ const { urlencoded } = require('body-parser');
 router.use(urlencoded({ extended: false }));
 require('../twilio.env')
 
-const accountSid = 'ACf60085a2616ff8498e7f6d244897b248'
-const authToken = 'a03e36e601bb334d9a0c4799b97e2d34'
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 
