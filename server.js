@@ -62,6 +62,7 @@ const twilioRoute = require("./routes/twilio")
 
 
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
@@ -86,6 +87,9 @@ app.use("/twilio", twilioRoute(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/cart", (req, res) => {
+  res.render("cart");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
@@ -95,10 +99,17 @@ app.listen(PORT, () => {
 //   res.render("menus");
 // });
 
+
 // app.get("/orders", (req,res) => {
 //   res.render("orders");
 // });
 
+<<<<<<< HEAD
 app.get("/restaurant", (req, res) => {
   res.render("restaurant")
 })
+=======
+// app.get("/restaurant", (req, res) => {
+//   res.render("restaurant")
+// })
+>>>>>>> a1f00618404a1aba7217c760c1d8158afc48ae2d

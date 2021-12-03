@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Cart Page</title>
-  </head>
+<head>
+  <title>Menu Page</title>
+</head>
 
-  <%- include('partials/_header') -%>
+<%- include('partials/_header') -%>
+<body>
+  <div>
+    <a class="backpage" href="/menu">
+      ← Keep Shopping
+    </a>
+</div>
 
-  <body>
+<div class="cart-head">
+  <h2 class="cart-title">Your Cart</h2>
+</div>
+<div class="cart-body">
+  <!-- if items are added -->
+  <ul class="cart-item-container">
 
-  <div class="container order">
-    <div class="row">
-      <div class="col-12">
-        <a href="/menu" class="back">← Keep Shopping</a>
-      </div>
-    </div>
+
+
+
+    <li> <span class="cart-item-quantity"></span>
+      <span class="cart-item"></span>
+      <span class="cart-item-cost_item"></span>
+    </li>
+
+
   </div>
 
-  <div id="footer">
-    <form method="POST" action="/user/order" id="checkout">
-      <input id="order-submit" type="submit" class="checkout" class="btn btn-primary btn-lg" value="Checkout"></input>
-    </form>
-    <span class="total">  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Total: $<span id="total"></span></span>
-  </div>
+<div class="cart-footer">
+  <div id = "cart-total">
+  <div class="cart-total">
 
-  <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/scripts/cart.js"></script>
-  <script type="text/javascript" src="/scripts/display-cart-items.js"></script>
-  <!-- <script type="text/javascript" src="/scripts/delete-item.js"></script> -->
-  <!-- <script type="text/javascript" src="/scripts/edit-cart.js"></script> -->
-  <script type="text/javascript" src="/scripts/footer.js"></script>
-  <script type="text/javascript" src="/scripts/order-submit.js"></script>
-  </body>
-</html>
+
+
+    <p>Subtotal: </p>
+    <p>Tax: </p>
+    <p>Total: </p>
+
+  </div>
+</div>
+  <!--need to change-->
+  <form action="/menu/id" method="post">
+
+    <input type="hidden" id="id" name="id" value="">
+    <input type="hidden" id="total" name="total" value="">
+    <input type="hidden" id="order_time" name="order_time" value="">
+    <button type="submit" class="checkout">Checkout</button>
+  </form>
+</div>
+
+
+</body>
+
