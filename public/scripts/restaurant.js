@@ -13,6 +13,7 @@ $(".pick-up-alert").submit(function(event) {
   $.ajax('/twilio/pick-up-alert', {
     method: 'POST',
     dataType: 'TEXT',
+    
     data: {
       //order ID
       //customer name
