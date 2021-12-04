@@ -1,5 +1,7 @@
 // load .env data into process.env
 require("dotenv").config();
+const twilio = require('twilio');
+
 
 // Web server config
 const PORT = process.env.PORT || 8080;
@@ -51,8 +53,7 @@ app.use(bodyParser.json());
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 
-const apiRoutes = require("./routes/apiRoutes");
-// const database = require("./routes/database");
+
 const customers = require("./routes/customers");
 const customersRoutes = require("./routes/customers");
 const menus = require("./routes/menus");
@@ -94,14 +95,5 @@ app.get("/cart", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT} 😎😎`);
 });
-
-// app.get("/menus", (req,res) => {
-//   res.render("menus");
-// });
-
-
-// app.get("/orders", (req,res) => {
-//   res.render("orders");
-// });
 
 

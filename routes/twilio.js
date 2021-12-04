@@ -4,8 +4,12 @@ const router = express.Router();
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const { urlencoded } = require('body-parser');
 router.use(urlencoded({ extended: false }));
+<<<<<<< HEAD
 require('dotenv').config();
 require('../twilio.env')
+=======
+//require('../twilio.env')
+>>>>>>> b3e5fe969e82e773822ecc9a25751ce490837f15
 
 // const accountSid = process.env.TWILIO_ACCOUNT_SID;
 // const authToken = process.env.TWILIO_AUTH_TOKEN;

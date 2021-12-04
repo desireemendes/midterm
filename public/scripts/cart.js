@@ -13,7 +13,6 @@ $.ajax({
     if(oldcartcontent !== null) {
       console.log(oldcartcontent);
       let cartArray = JSON.parse(oldcartcontent);
-      //carts = [carts, ...cartArray];
       let newContent = carts.concat(cartArray);
 
       console.log("What is in cart",newContent);
@@ -35,20 +34,14 @@ $.ajax({
 
 })
 
-// function subTotal(){
-//   let subtotal = 0;
-//   for (let item of cart){
-
-//   }
-// }
-
 function createCart(cart){
 
-  return ` <li> <span class="cart-item-quantity">${cart.quantity}</span>
+  return ` <li>
+  <span class="cart-item-quantity">${cart.quantity}</span>
   <span class="cart-item">${cart.name}</span>
   <span class="cart-item-cost_item">${cart.cost_item * 0.01}</span>
 
-</li>`
+  </li>`
 
 
 }
@@ -61,7 +54,6 @@ function showCarts(carts){
 
 
   }
-  console.log("total>>>>>.",subtotal);
 return subtotal;
 }
 
@@ -70,14 +62,13 @@ function showTotal(subtotal){
     let total = subtotal + tax;
  return `
   <div class="cart-total">
-    <p>Subtotal: ${subtotal} </p>
-    <p>Tax: ${tax} </p>
-    <p>Total: ${total} </p>
+    <p>Subtotal: ${subtotal.toFixed(2)} </p>
+    <p>Tax: ${tax.toFixed(2)} </p>
+    <p>Total: ${total.toFixed(2)}</p>
 </div>`
 }
 
 function show(){
- // console.log("yeah")
   let cartcontent = localStorage.getItem("cart")
   console.log("items to the cart",cartcontent);
   if(cartcontent !== null) {
@@ -85,7 +76,6 @@ function show(){
      let total = showCarts(cartArray);
      document.getElementById("cart-total").innerHTML=showTotal(total);
      localStorage.clear();
-      //showTotal(total);
 
 }
 }
