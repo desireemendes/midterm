@@ -95,7 +95,7 @@ module.exports = (db) => {
           .create({
             body: `Your order is ready to be picked up now. Enjoy!`,
             from: '+12078172429',
-            to: '+16474621668'
+            to: customerPhoneNumber
           })
           .then(message => {
             console.log(message)
